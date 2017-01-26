@@ -1,5 +1,9 @@
 <?php
 
-Route::group(['middleware' => 'web', 'prefix' => 'lbsm'], function () {
-	Route::resource("item", "libressltd\lbsidemenu\controllers\LBSM_itemController");
+Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'lbtracker'], function () {
+	Route::resource("request", "libressltd\lbtracker\controllers\LBT_requestController");
+});
+
+Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'lbtracker/ajax'], function () {
+	Route::resource("request", "libressltd\lbtracker\controllers\Ajax\LBT_requestController");
 });

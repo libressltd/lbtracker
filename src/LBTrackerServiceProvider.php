@@ -13,10 +13,8 @@ class LBTrackerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadViewsFrom(__DIR__.'/views/role', 'role');
-        // $this->loadViewsFrom(__DIR__.'/views', 'dp');
         $this->publishes([
-            // __DIR__.'/views' => base_path('resources/views/libressltd/lbsidemenu'),
+            __DIR__.'/views' => base_path('resources/views/libressltd/lbtracker'),
             __DIR__.'/migrations' => base_path('database/migrations'),
             __DIR__.'/models' => base_path('app/Models'),
         //     __DIR__.'/requests' => base_path('app/Http/Requests/DeepPermission'),
@@ -38,7 +36,8 @@ class LBTrackerServiceProvider extends ServiceProvider
     public function register()
     {
         include __DIR__.'/routes.php';
-        // $this->app->make('LIBRESSLtd\LBSideMenu\Controllers\LBSM_itemController');
+        $this->app->make('LIBRESSLtd\LBTracker\Controllers\LBT_requestController');
+        $this->app->make('LIBRESSLtd\LBTracker\Controllers\Ajax\LBT_requestController');
         // $this->app->make('LIBRESSLtd\DeepPermission\Controllers\PermissionGroupController');
         // $this->app->make('LIBRESSLtd\DeepPermission\Controllers\PermissionController');
         // $this->app->make('LIBRESSLtd\DeepPermission\Controllers\UserRoleController');

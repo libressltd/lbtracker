@@ -3,7 +3,8 @@
     "description": "full stack package allow deep permission system",
     "type": "library",
     "require": {
-
+        "libressltd/lbsa": "*",
+        "libressltd/lbsidemenu": "*"
     },
     "license": "MIT",
     "authors": [

@@ -1,19 +1,16 @@
 <?php
 
-namespace LIBRESSLtd\LBSideMenu\Controllers;
+namespace LIBRESSLtd\LBTracker\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
+use App\Models\LBT_request;
 use App\Models\LBSM_item;
 
-class LBSM_itemController extends Controller
+class LBT_requestController extends Controller
 {
-	public function __construct()
-    {
-        $this->middleware('auth');
-	}
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +18,8 @@ class LBSM_itemController extends Controller
      */
     public function index()
     {
-        $items = LBSM_item::all_ordered();
-        return view("libressltd.lbsidemenu.item.index", ["items" => $items]);
+        $requests = LBT_request::orderBy("created_at", "desc")->paginate(10);
+        return view("libressltd.lbtracker.request.index", ["requests" => $requests]);
     }
 
     /**
@@ -32,7 +29,7 @@ class LBSM_itemController extends Controller
      */
     public function create()
     {
-        return view("libressltd.deeppermission.permission.add");
+        return view("libressltd.lbtracker.request.add");
     }
 
     /**
@@ -43,26 +40,6 @@ class LBSM_itemController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new LBSM_item;
-        $item->fill($request->all());
-
-        if ($request->parent_id != -1)
-        {
-            $item->parent_id = $request->parent_id;
-        }
-
-        $item->save();
-
-        if ($request->roles)
-        {
-            $item->roles()->sync($request->roles);
-        }
-
-        if ($request->permissions)
-        {
-            $item->permissions()->sync($request->permissions);
-        }
-		
 		return redirect()->back();
     }
 
@@ -74,7 +51,10 @@ class LBSM_itemController extends Controller
      */
     public function show($id)
     {
-        //
+        if ($id == "init")
+        {
+
+        }
     }
 
     /**

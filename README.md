@@ -21,7 +21,7 @@ php artisan vendor:publish --tag=lbtracker --force
 php artisan migrate
 ```
 
-### Step 4: Add following line to App\Http\Kernel > middleware
+### Step 4: Add following line to App\Http\Kernel > routeMiddleware
 	
 	
 ```php
@@ -31,7 +31,7 @@ php artisan migrate
 
 ```
 
-Add middleware to any route that you want to track
+Add middleware to any route that you want to track. Remember to put the tracker after auth or auth:api 
 
 ```php
 
@@ -42,4 +42,16 @@ Route::group(["middleware" => ["lbtracker"]], function() {
 });
 
 ```
+
+or put it on middlewares to make it global
+
+```php
+
+    protected $middleware = [
+        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+
+        // Middleware for LBTracker
+        \App\Http\Middleware\LBTrackerMiddleware::class,
+    ];
+
 ```

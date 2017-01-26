@@ -19,8 +19,13 @@ class CreateLBTRequestsTable extends Migration
             $table->string("REMOTE_ADDR")->nullable();
             $table->string("REQUEST_METHOD")->nullable();
             $table->text("HTTP_USER_AGENT")->nullable();
+            $table->text("REQUEST_URI")->nullable();
+            $table->text("PATH_INFO")->nullable();
+            $table->text("QUERY_STRING")->nullable();
 
             $table->char("user_id", 32)->nullable();
+            $table->char("created_by", 32)->nullable();
+            $table->char("updated_by", 32)->nullable();
             $table->timestamps();
             $table->primary('id');
         });
