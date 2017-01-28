@@ -16,7 +16,14 @@ class LBTrackerMiddleware
      */
     public function handle($request, Closure $next)
     {
-        LBT_request::save_request($request);
-        return $next($request);
+        $r = LBT_request::save_request($request);
+
+        $response = $next($request);
+
+        $r->response_html = $response->content();
+        $r->response_code = $response->status();
+        $r->save();
+
+        return $response;
     }
 }

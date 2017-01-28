@@ -23,6 +23,9 @@ class CreateLBTRequestsTable extends Migration
             $table->text("PATH_INFO")->nullable();
             $table->text("QUERY_STRING")->nullable();
 
+            $table->text("response_html")->nullable();
+            $table->integer("response_code")->nullable();
+
             $table->char("user_id", 32)->nullable();
             $table->char("created_by", 32)->nullable();
             $table->char("updated_by", 32)->nullable();
