@@ -25,12 +25,12 @@ active
                     	@include("layouts.elements.table", [
                     		"url" => "/lbtracker/ajax/request",
                     		"columns" => [
-                    			["title" => "Host", "data" => "HTTP_HOST"],
+                                ["title" => "Time", "data" => "created_at"],
+                                ["title" => "User", "data" => "user.name", "defaultContent" => ""],
                     			["title" => "IP", "data" => "REMOTE_ADDR"],
                     			["title" => "Method", "data" => "REQUEST_METHOD"],
-                    			["title" => "Path", "data" => "PATH_INFO"],
-                    			["title" => "User", "data" => "user.name", "defaultContent" => ""],
-                    			["title" => "Time", "data" => "created_at"],
+                                ["title" => "URI", "data" => "REQUEST_URI"],
+                                ["title" => "Path", "data" => "PATH_INFO"],
                     		]
                     	])
 					</div>
