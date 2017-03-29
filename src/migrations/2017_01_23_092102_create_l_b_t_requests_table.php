@@ -15,6 +15,7 @@ class CreateLBTRequestsTable extends Migration
     {
         Schema::create('LBT_requests', function (Blueprint $table) {
             $table->char('id', 32);
+            $table->primary('id');
             $table->string("HTTP_HOST")->nullable();
             $table->string("REMOTE_ADDR")->nullable();
             $table->string("REQUEST_METHOD")->nullable();
@@ -30,7 +31,6 @@ class CreateLBTRequestsTable extends Migration
             $table->char("created_by", 32)->nullable();
             $table->char("updated_by", 32)->nullable();
             $table->timestamps();
-            $table->primary('id');
         });
     }
 
