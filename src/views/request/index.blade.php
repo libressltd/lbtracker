@@ -9,9 +9,9 @@ active
     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
         <h1 class="page-title txt-color-blueDark">
             <i class="fa fa-edit fa-fw "></i> 
-                {{ trans('lbt.request.list.title') }}
+                {{ trans('lbtracker.request_index_title') }}
             <span>
-                {{ trans("general.list") }} 
+                {{ trans("lbtracker.request_index_subtitle") }} 
             </span>
         </h1>
     </div>
@@ -19,18 +19,18 @@ active
 <section id="widget-grid" class="">
     <div class="row">
         <article class="col-lg-12">
-        	@box_open(trans('lbt.request.list.title'))
+        	@box_open(trans('lbtracker.request_index_title'))
                 <div>
                     <div class="widget-body no-padding">
                     	@include("layouts.elements.table", [
                     		"url" => "/lbtracker/ajax/request",
                     		"columns" => [
-                                ["title" => "Time", "data" => "created_at"],
-                                ["title" => "User", "data" => "user.name", "defaultContent" => ""],
-                    			["title" => "IP", "data" => "REMOTE_ADDR"],
-                    			["title" => "Method", "data" => "REQUEST_METHOD"],
-                                ["title" => "URI", "data" => "REQUEST_URI"],
-                                ["title" => "Path", "data" => "PATH_INFO"],
+                                ["title" => trans("lbtracker.request_index_time"), "data" => "created_at"],
+                                ["title" => trans("lbtracker.request_index_user"), "data" => "user.name", "defaultContent" => ""],
+                    			["title" => trans("lbtracker.request_index_ip"), "data" => "REMOTE_ADDR"],
+                    			["title" => trans("lbtracker.request_index_method"), "data" => "REQUEST_METHOD"],
+                                ["title" => trans("lbtracker.request_index_uri"), "data" => "REQUEST_URI"],
+                                ["title" => trans("lbtracker.request_index_path"), "data" => "PATH_INFO"],
                     		]
                     	])
 					</div>

@@ -9,9 +9,9 @@ active
     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
         <h1 class="page-title txt-color-blueDark">
             <i class="fa fa-edit fa-fw "></i> 
-                {{ trans('lbsm.item.add.title') }}
+                {{ trans('lbtracker.request_add_title') }}
             <span>
-                {{ trans("general.list") }} 
+                {{ trans('lbtracker.request_add_sub_title') }} 
             </span>
         </h1>
     </div>
@@ -20,9 +20,9 @@ active
 	<div class="row">
 		<div class="col-md-6">
 			@if (!isset($permission))
-			@box_open(trans('deeppermission.permission.add'))
+			@box_open(trans('lbtracker.request_add'))
 			@else
-			@box_open(trans('deeppermission.permission.edit').": ".$permission->name)
+			@box_open(trans('lbtracker.request_edit').": ".$permission->name)
 			@endif
 				<div class="box-body">
 					@if (isset($item))
