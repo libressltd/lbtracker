@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'lbtracker'], function () {
+Route::group(['middleware' => ['web', 'auth', 'lbpermission:lbtracker.view'], 'prefix' => 'lbtracker'], function () {
 	Route::resource("request", "libressltd\lbtracker\controllers\LBT_requestController");
 });
 
